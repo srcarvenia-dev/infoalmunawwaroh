@@ -12,10 +12,9 @@
 
     <meta name="theme-color" content="#064e3b">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Al Munawwaroh">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIk1hc2ppZCBBbCBNdW5hd3dhcm9oIiwKICAic2hvcnRfbmFtZSI6ICJBbCBNdW5hd3dhcm9oIiwKICAic3RhcnRfdXJsIjogIi4iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMwNjRlM2IiLAogICJ0aGVtZV9jb2xvciI6ICIjMDY0ZTNiIiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiaHR0cHM6Ly9jZG4taWNvbi1wbmcuZnJlZXBpay5jb20vNTEyLzI2NjUvMjY2NTExOS5wbmciLAogICAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSIKICAgIH0KICBdCn0=">
+    <link rel="manifest" href='data:application/json,{"name":"Masjid Al Munawwaroh","short_name":"AlMunawwaroh","start_url":"/","display":"standalone","background_color":"#064e3b","theme_color":"#064e3b","icons":[{"src":"https://cdn-icons-png.flaticon.com/512/2665/2665119.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}'>
 
     <style>
         :root {
@@ -28,21 +27,21 @@
 
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-body); color: #334155; scroll-behavior: smooth; overflow-x: hidden; }
         
-        /* Hapus Header Blogger */
+        /* Pembersihan elemen bawaan Blogger */
         #header-wrapper, .navbar-blogger, .quickedit, .widget-item-control, .navbar { display: none !important; }
 
-        .ticker-wrap { background: var(--primary); color: white; padding: 12px 0; font-size: 0.85rem; border-bottom: 2px solid var(--accent); overflow: hidden; }
+        .ticker-wrap { background: var(--primary); color: white; padding: 12px 0; font-size: 0.85rem; border-bottom: 2px solid var(--accent); overflow: hidden; position: sticky; top: 0; z-index: 1000; }
         .ticker-move { display: inline-block; white-space: nowrap; animation: ticker 40s linear infinite; }
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
         .hero-section { 
-            height: 75vh; min-height: 500px;
+            height: 80vh; min-height: 550px;
             background: linear-gradient(rgba(6, 78, 59, 0.7), rgba(6, 78, 59, 0.8)), var(--hero-img); 
             background-size: cover; background-position: center; background-attachment: fixed;
             display: flex; align-items: center; color: white; border-radius: 0 0 60px 60px; margin-bottom: -60px;
         }
 
-        /* Menu Navigasi Utama */
+        /* Navigasi Utama (Card Menu) */
         .menu-container { position: relative; z-index: 10; }
         .menu-tile { 
             background: white; border-radius: 20px; padding: 25px 10px; 
@@ -55,7 +54,7 @@
         .menu-tile span { display: block; font-weight: 800; color: var(--primary); font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
         .menu-tile:hover i, .menu-tile:hover span { color: white; }
 
-        section { padding: 80px 0; }
+        section { padding: 90px 0; }
         .section-title { font-weight: 800; color: var(--primary); font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
         
         .kas-card, .jumat-card, .agenda-card { border: none; border-radius: 24px; padding: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); background: white; transition: 0.3s; height: 100%; border: 1px solid rgba(0,0,0,0.05); }
@@ -64,7 +63,7 @@
         .ayat-box { background: white; border-radius: 35px; padding: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); border-left: 12px solid var(--accent); position: relative; }
         .arabic-text { font-family: 'Amiri', serif; font-size: 2.4rem; line-height: 2.2; color: var(--primary); direction: rtl; }
 
-        .btn-primary-custom { background: var(--accent); color: white !important; border-radius: 50px; padding: 15px 40px; font-weight: 700; border: none; text-decoration: none; display: inline-block; transition: 0.3s; }
+        .btn-primary-custom { background: var(--accent); color: white !important; border-radius: 50px; padding: 15px 40px; font-weight: 700; border: none; text-decoration: none; display: inline-block; transition: 0.3s; cursor: pointer; }
         .btn-primary-custom:hover { background: var(--primary); transform: scale(1.05); }
         
         .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 1000; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
@@ -74,11 +73,11 @@
         .loading-overlay { display: flex; justify-content: center; padding: 40px; width: 100%; }
 
         @media (max-width: 768px) {
-            .hero-section { height: 65vh; border-radius: 0 0 40px 40px; }
+            .hero-section { height: 75vh; border-radius: 0 0 40px 40px; }
             .section-title { font-size: 1.8rem; }
-            .menu-tile { padding: 20px 5px; }
-            .menu-tile i { font-size: 1.8rem; }
-            .menu-tile span { font-size: 0.7rem; }
+            .menu-tile { padding: 15px 5px; }
+            .menu-tile i { font-size: 1.6rem; }
+            .menu-tile span { font-size: 0.65rem; }
         }
     </style>
 </head>
@@ -95,15 +94,18 @@
         <div class="badge bg-white text-success px-3 py-2 rounded-pill mb-3 fw-bold shadow-sm" style="color: var(--primary) !important;">RESMI - CIPANCUH</div>
         <h1 class="display-3 fw-extrabold mb-3 text-white">Masjid Al Munawwaroh</h1>
         <p class="lead mb-5 text-white opacity-90 mx-auto" style="max-width: 700px;">Pusat Ibadah, Pendidikan, dan Pemberdayaan Ummat di Indramayu.</p>
-        <div class="d-flex justify-content-center gap-3">
+        <div class="d-flex justify-content-center flex-wrap gap-3">
             <a class="btn btn-primary-custom shadow-lg" href="#sedekah">Infaq Sekarang</a>
-            <a class="btn btn-outline-light rounded-pill px-4 fw-bold" href="#profil">Lihat Profil</a>
+            <button id="btnInstall" class="btn btn-outline-light rounded-pill px-4 fw-bold" style="display:none;" onclick="installApp()">
+                <i class="fas fa-download me-2"></i>Pasang Aplikasi
+            </button>
+            <a class="btn btn-outline-light rounded-pill px-4 fw-bold" href="#profil">Profil</a>
         </div>
     </div>
 </header>
 
 <div class="container menu-container">
-    <div class="row g-3 justify-content-center">
+    <div class="row g-2 g-md-3 justify-content-center">
         <div class="col-4 col-md-2"><a href="#profil" class="menu-tile"><i class="fas fa-mosque"></i><span>Profil</span></a></div>
         <div class="col-4 col-md-2"><a href="#agenda" class="menu-tile"><i class="fas fa-calendar-alt"></i><span>Agenda</span></a></div>
         <div class="col-4 col-md-2"><a href="#jumat" class="menu-tile"><i class="fas fa-microphone-alt"></i><span>Jumat</span></a></div>
@@ -116,7 +118,7 @@
 <section id="profil">
     <div class="container">
         <div class="row align-items-center g-5">
-            <div class="col-lg-6 order-2 order-lg-1 text-center text-lg-start">
+            <div class="col-lg-6 order-2 order-lg-1">
                 <h5 class="fw-bold text-uppercase mb-2" style="color: var(--accent);">Ahlan wa Sahlan</h5>
                 <h2 class="section-title text-lg-start mb-4">Sambutan DKM</h2>
                 <p class="lead text-muted mb-5">Selamat datang di portal resmi Masjid Al Munawwaroh. Kami berkomitmen menjadikan masjid sebagai pusat peradaban dan sosial bagi masyarakat Cipancuh.</p>
@@ -137,19 +139,6 @@
 <section class="bg-light" id="agenda"><div class="container"><h2 class="section-title">Agenda Masjid</h2><div class="row g-4" id="agenda-container"></div></div></section>
 
 <section id="jumat"><div class="container"><h2 class="section-title">Petugas Sholat Jumat</h2><div class="row g-4 justify-content-center" id="jumat-cards"></div></div></section>
-
-<section id="warta" class="bg-light">
-    <div class="container">
-        <h2 class="section-title">Kabar Masjid</h2>
-        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6 g-3 mb-5" id="blogger-feed"></div>
-        <div class="text-center mt-5">
-            <h2 class="section-title">Video Kegiatan</h2>
-            <div class="ratio ratio-16x9 mx-auto shadow-lg rounded-4 overflow-hidden" style="max-width: 850px; border: 8px solid white;">
-                <iframe src="https://www.youtube.com/embed/0QSXW_e7Krs" title="YouTube video" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section class="bg-white" id="keuangan">
     <div class="container">
@@ -178,7 +167,7 @@
                     <button class="btn btn-primary-custom w-100 py-3" onclick="copyNorek()">Salin Nomor Rekening</button>
                 </div>
                 <div class="col-md-5 text-center mt-5 mt-md-0">
-                    <img class="img-fluid rounded-4" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjG6V4Zaqpeon443FljDN_yd4qeunPrE51q2urRvtCBsC_Gk_nSgQ7SMxY7KY802cNkIV06SkgwU7d44tt4ybO0VzlipmarqNX70fF1S1ytGxaWF0AAu3O4GT9GhFsTJvrRVwSVsCsHOXJVgRIWIRbmToMG0Uj2hfNycEpkELRngirac2xvVV7gNsl9MQLj/s320/IMG-20251228-WA0078.jpg" alt="QRIS" style="max-height: 280px;">
+                    <img class="img-fluid rounded-4 shadow" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjG6V4Zaqpeon443FljDN_yd4qeunPrE51q2urRvtCBsC_Gk_nSgQ7SMxY7KY802cNkIV06SkgwU7d44tt4ybO0VzlipmarqNX70fF1S1ytGxaWF0AAu3O4GT9GhFsTJvrRVwSVsCsHOXJVgRIWIRbmToMG0Uj2hfNycEpkELRngirac2xvVV7gNsl9MQLj/s320/IMG-20251228-WA0078.jpg" alt="QRIS" style="max-height: 280px;">
                 </div>
             </div>
         </div>
@@ -194,16 +183,18 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+    // URL Sumber Data (Google Sheets)
     const csvKas = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQGTA_DyxcDC3JFbw2w_rjIrR2zOecNTOTGt0RJOyKjzI1DsoLDNZ4t4LaHrHLIp6yLzZN5Q-Hyy2A8/pub?gid=1247197738&single=true&output=csv';
     const csvJumat = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQGTA_DyxcDC3JFbw2w_rjIrR2zOecNTOTGt0RJOyKjzI1DsoLDNZ4t4LaHrHLIp6yLzZN5Q-Hyy2A8/pub?gid=2145598285&single=true&output=csv';
     const csvAgenda = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQGTA_DyxcDC3JFbw2w_rjIrR2zOecNTOTGt0RJOyKjzI1DsoLDNZ4t4LaHrHLIp6yLzZN5Q-Hyy2A8/pub?gid=2084790368&single=true&output=csv';
 
     async function init() {
+        // Tampilkan loading spinner
         const loading = '<div class="loading-overlay"><div class="spinner"></div></div>';
         document.getElementById('agenda-container').innerHTML = loading;
         document.getElementById('jumat-cards').innerHTML = loading;
-        document.getElementById('blogger-feed').innerHTML = loading;
 
+        // Fetch Ayat Al-Quran (Acak)
         try {
             const rdm = Math.floor(Math.random() * 6236) + 1;
             const r = await fetch(`https://api.alquran.cloud/v1/ayah/${rdm}/editions/quran-uthmani,id.indonesian`);
@@ -213,6 +204,7 @@
             document.getElementById('ar-ref').innerText = `— QS. ${d.data[0].surah.englishName}: ${d.data[0].numberInSurah}`;
         } catch(e){}
 
+        // Fetch Agenda
         try {
             const res = await fetch(csvAgenda);
             const text = await res.text();
@@ -222,6 +214,7 @@
             document.getElementById('agenda-container').innerHTML = h || 'Belum ada agenda.';
         } catch(e){}
 
+        // Fetch Petugas Jumat
         try {
             const res = await fetch(csvJumat);
             const text = await res.text();
@@ -231,6 +224,7 @@
             document.getElementById('jumat-cards').innerHTML = h || 'Jadwal belum tersedia.';
         } catch(e){}
 
+        // Fetch Laporan Kas
         try {
             const res = await fetch(csvKas);
             const text = await res.text();
@@ -250,18 +244,6 @@
             document.getElementById('summary-keluar').innerText = 'Rp ' + tK.toLocaleString('id-ID');
             document.getElementById('summary-saldo').innerText = 'Rp ' + (tM - tK).toLocaleString('id-ID');
         } catch(e){}
-
-        fetch("/feeds/posts/default?alt=json").then(res => res.json()).then(data => {
-            let html = "";
-            if (data.feed.entry) {
-                data.feed.entry.slice(0, 6).forEach(post => {
-                    let img = post.media$thumbnail ? post.media$thumbnail.url.replace("s72-c", "s1600") : "https://via.placeholder.com/400x250";
-                    let link = post.link.find(l => l.rel === 'alternate').href;
-                    html += `<div class="col"><div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"><img src="${img}" style="height:120px; object-fit:cover;"><div class="card-body p-2"><h6 class="small fw-bold mb-1" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:11px;">${post.title.$t}</h6><a href="${link}" class="text-success small fw-bold text-decoration-none" style="font-size:10px">BACA →</a></div></div></div>`;
-                });
-                document.getElementById("blogger-feed").innerHTML = html;
-            }
-        }).catch(() => {});
     }
 
     function copyNorek() {
@@ -269,13 +251,37 @@
         navigator.clipboard.writeText(nr).then(() => { alert("Nomor Rekening Berhasil Disalin!"); });
     }
 
-    // PWA Service Worker Registration
+    // --- LOGIKA PWA & INSTALL ---
+    let deferredPrompt;
+    const btnInstall = document.getElementById('btnInstall');
+
+    // Mendaftarkan Service Worker (Syarat PWA)
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             const swCode = `self.addEventListener('install', e => self.skipWaiting()); self.addEventListener('fetch', e => e.respondWith(fetch(e.request)));`;
             const blob = new Blob([swCode], { type: 'text/javascript' });
-            navigator.serviceWorker.register(URL.createObjectURL(blob));
+            navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(err => console.log('SW failed', err));
         });
+    }
+
+    // Menangkap event "siap install" dari Chrome
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        // Tampilkan tombol install manual
+        btnInstall.style.display = 'inline-block';
+    });
+
+    // Fungsi saat tombol install diklik
+    async function installApp() {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                btnInstall.style.display = 'none';
+            }
+            deferredPrompt = null;
+        }
     }
 
     window.onload = init;
