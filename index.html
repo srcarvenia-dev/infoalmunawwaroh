@@ -5,302 +5,205 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Masjid Al Munawwaroh - Official Landing Page</title>
     
-    <meta name="theme-color" content="#064e3b">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Al Munawwaroh">
-    <link rel="manifest" id="pwa-manifest">
-    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2612/2612261.png">
-
-    <meta name="description" content="Website Resmi Masjid Al Munawwaroh Desa Cipancuh, Haurgeulis, Indramayu. Informasi jadwal sholat, agenda kegiatan, laporan kas, dan layanan umat.">
-    <meta name="keywords" content="Masjid Al Munawwaroh, Cipancuh, Haurgeulis, Indramayu, Jadwal Sholat, DKM, Infaq Masjid">
-    <meta name="author" content="DKM Al Munawwaroh">
-
+    <meta name="description" content="Website Resmi Masjid Al Munawwaroh Desa Cipancuh, Haurgeulis, Indramayu.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
 
+    <meta name="theme-color" content="#064e3b">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Al Munawwaroh">
+    
+    <link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIk1hc2ppZCBBbCBNdW5hd3dhcm9oIiwKICAic2hvcnRfbmFtZSI6ICJBbCBNdW5hd3dhcm9oIiwKICAic3RhcnRfdXJsIjogIi4iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMwNjRlM2IiLAogICJ0aGVtZV9jb2xvciI6ICIjMDY0ZTNiIiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiaHR0cHM6Ly9jZG4taWNvbi1wbmcuZnJlZXBpay5jb20vNTEyLzI2NjUvMjY2NTExOS5wbmciLAogICAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSIKICAgIH0KICBdCn0=">
+
     <style>
         :root {
-            --primary: #064e3b;
+            --primary: #064e3b; 
             --secondary: #10b981;
-            --accent: #f59e0b;
+            --accent: #d4af37;
             --bg-body: #f8fafc;
-            --hero-img: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGfkh5nHBUM9PzkK6aTqB5nc74FrvdEJ7VoQJ6N9OI6jEWawRfw9tXB50hkcZvSGaWUMI9RyfB5fdIH7xK7zkcWXxd2DiHA55CurBCzYwxieLcStF1VlTfDQ2MytkpxCfQTR60T-fhLI7vcCWBRpUEGeBpLvZll7VQikkaRgy7Kux3e21L7WF-e4xQDQ9h/s1600/IMG-20251229-WA0000.jpg');
+            --hero-img: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdIXqMB33ZDZf-EkafxYOgJUm-X9wMb8ecOi1RD95DzY3SdxnPUpdtHqCO5avwDJu6bAjNqGvb4_Jk-wZDifOOqG0PYnYPxufQ5mtayINaH557Pyard32eFvCelZneZQU8F7Lp13J4De4dtO-LtvoGG5sznhpWY1SM6FZKsA8SZOY5v68OGJN2a59-pJi2/s1600/487230d5-4ac3-455f-9a87-478498d5ef6e%281%29.jpg');
         }
 
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-body); color: #334155; scroll-behavior: smooth; }
-        #header-wrapper, .navbar-blogger, .quickedit, .widget-item-control { display: none !important; }
-        .navbar { background: rgba(255, 255, 255, 0.9) !important; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .nav-link { font-weight: 700; color: var(--primary) !important; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        .ticker-wrap { background: var(--primary); color: white; padding: 10px 0; font-size: 0.85rem; overflow: hidden; white-space: nowrap; }
-        .ticker-move { display: inline-block; animation: ticker 40s linear infinite; }
-        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-        .hero-section { height: 70vh; background: linear-gradient(rgba(6, 78, 59, 0.7), rgba(6, 78, 59, 0.5)), var(--hero-img); background-size: cover; background-position: center; display: flex; align-items: center; color: white; border-radius: 0 0 50px 50px; margin-bottom: -100px; }
-        .prayer-tile { background: white; border-radius: 20px; padding: 25px 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border-bottom: 5px solid var(--secondary); transition: 0.3s; }
-        .p-time { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
-        .p-label { font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; }
-        section { padding: 80px 0; }
-        .section-title { font-weight: 800; color: var(--primary); font-size: 2.2rem; margin-bottom: 1rem; text-align: center; }
-        .section-subtitle { color: #64748b; margin-bottom: 3rem; text-align: center; }
-        .struktur-img { border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 8px solid white; transition: 0.3s; cursor: pointer; }
-        .kas-card, .jumat-card, .agenda-card { border: none; border-radius: 24px; padding: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.02); background: white; transition: 0.3s; height: 100%; }
-        .agenda-card { border-left: 6px solid var(--secondary); }
-        .ayat-box { background: white; border-radius: 30px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.03); border-left: 10px solid var(--accent); }
-        .arabic-text { font-family: 'Amiri', serif; font-size: 2.2rem; line-height: 2.2; color: var(--primary); direction: rtl; }
-        .btn-primary-custom { background: var(--primary); color: white; border-radius: 50px; padding: 14px 35px; font-weight: 700; border: none; transition: 0.3s; text-decoration: none; display: inline-block; }
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .badge-jumat { background: var(--primary); color: white; padding: 4px 12px; border-radius: 50px; font-size: 0.7rem; margin-bottom: 10px; display: inline-block; font-weight: 700; }
-        .loading-overlay { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px; width: 100%; }
-        .spinner { width: 40px; height: 40px; border: 4px solid rgba(6, 78, 59, 0.1); border-left-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 10px; }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-body); color: #334155; scroll-behavior: smooth; overflow-x: hidden; }
+        
+        /* Hapus Header Blogger */
+        #header-wrapper, .navbar-blogger, .quickedit, .widget-item-control, .navbar { display: none !important; }
 
-        /* Style untuk Tombol Install */
-        #btnInstall {
-            position: fixed;
-            bottom: 100px;
-            left: 20px;
-            z-index: 1001;
-            display: none; /* Muncul via JS */
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        .ticker-wrap { background: var(--primary); color: white; padding: 12px 0; font-size: 0.85rem; border-bottom: 2px solid var(--accent); overflow: hidden; }
+        .ticker-move { display: inline-block; white-space: nowrap; animation: ticker 40s linear infinite; }
+        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        .hero-section { 
+            height: 75vh; min-height: 500px;
+            background: linear-gradient(rgba(6, 78, 59, 0.7), rgba(6, 78, 59, 0.8)), var(--hero-img); 
+            background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; align-items: center; color: white; border-radius: 0 0 60px 60px; margin-bottom: -60px;
+        }
+
+        /* Menu Navigasi Utama */
+        .menu-container { position: relative; z-index: 10; }
+        .menu-tile { 
+            background: white; border-radius: 20px; padding: 25px 10px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; 
+            border-bottom: 5px solid var(--accent); transition: all 0.3s ease;
+            text-decoration: none; display: block; height: 100%;
+        }
+        .menu-tile:hover { transform: translateY(-12px); background: var(--primary); border-bottom: 5px solid var(--secondary); }
+        .menu-tile i { font-size: 2.2rem; color: var(--accent); margin-bottom: 12px; transition: 0.3s; }
+        .menu-tile span { display: block; font-weight: 800; color: var(--primary); font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        .menu-tile:hover i, .menu-tile:hover span { color: white; }
+
+        section { padding: 80px 0; }
+        .section-title { font-weight: 800; color: var(--primary); font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
+        
+        .kas-card, .jumat-card, .agenda-card { border: none; border-radius: 24px; padding: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); background: white; transition: 0.3s; height: 100%; border: 1px solid rgba(0,0,0,0.05); }
+        .agenda-card { border-left: 6px solid var(--accent); }
+        
+        .ayat-box { background: white; border-radius: 35px; padding: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); border-left: 12px solid var(--accent); position: relative; }
+        .arabic-text { font-family: 'Amiri', serif; font-size: 2.4rem; line-height: 2.2; color: var(--primary); direction: rtl; }
+
+        .btn-primary-custom { background: var(--accent); color: white !important; border-radius: 50px; padding: 15px 40px; font-weight: 700; border: none; text-decoration: none; display: inline-block; transition: 0.3s; }
+        .btn-primary-custom:hover { background: var(--primary); transform: scale(1.05); }
+        
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 1000; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
+        
+        .spinner { width: 40px; height: 40px; border: 4px solid rgba(212, 175, 55, 0.1); border-left-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-overlay { display: flex; justify-content: center; padding: 40px; width: 100%; }
+
+        @media (max-width: 768px) {
+            .hero-section { height: 65vh; border-radius: 0 0 40px 40px; }
+            .section-title { font-size: 1.8rem; }
+            .menu-tile { padding: 20px 5px; }
+            .menu-tile i { font-size: 1.8rem; }
+            .menu-tile span { font-size: 0.7rem; }
         }
     </style>
 </head>
 <body>
 
-<button id="btnInstall"><i class="fas fa-download me-2"></i>Pasang Aplikasi</button>
-
-<nav class="navbar navbar-expand-lg sticky-top shadow-sm">
-    <div class="container">
-        <a class="navbar-brand fw-bold text-success" href="#">AL MUNAWWAROH</a>
-        <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
-                <li class="nav-item"><a class="nav-link" href="#profil">Profil</a></li>
-                <li class="nav-item"><a class="nav-link" href="#agenda">Agenda</a></li>
-                <li class="nav-item"><a class="nav-link" href="#jumat">Jumat</a></li>
-                <li class="nav-item"><a class="nav-link" href="#warta">Warta</a></li>
-                <li class="nav-item"><a class="nav-link" href="#keuangan">Kas</a></li>
-                <li class="nav-item"><a class="nav-link" href="#sedekah">Infaq</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
 <div class="ticker-wrap" id="beranda">
-    <div class="ticker-move">INFO: Salurkan Infaq Terbaik anda ke Rek BRI 4189-0103-7180-530 a.n DKM Al Munawwaroh • Mari makmurkan masjid dengan Sholat Berjamaah tepat waktu.</div>
+    <div class="ticker-move">
+        📌 INFO: Salurkan Infaq Terbaik anda ke Rek BRI 4189-0103-7180-530 a.n DKM Al Munawwaroh • Mari makmurkan masjid dengan Sholat Berjamaah tepat waktu.
+    </div>
 </div>
 
 <header class="hero-section">
     <div class="container text-center">
-        <h1 class="display-3 fw-bold mb-3 text-white">Masjid Al Munawwaroh</h1>
-        <p class="lead mb-4 opacity-75 text-white">Cipancuh - Haurgeulis - Indramayu</p>
+        <div class="badge bg-white text-success px-3 py-2 rounded-pill mb-3 fw-bold shadow-sm" style="color: var(--primary) !important;">RESMI - CIPANCUH</div>
+        <h1 class="display-3 fw-extrabold mb-3 text-white">Masjid Al Munawwaroh</h1>
+        <p class="lead mb-5 text-white opacity-90 mx-auto" style="max-width: 700px;">Pusat Ibadah, Pendidikan, dan Pemberdayaan Ummat di Indramayu.</p>
         <div class="d-flex justify-content-center gap-3">
-            <a class="btn btn-primary-custom shadow" href="#sedekah">Infaq Sekarang</a>
+            <a class="btn btn-primary-custom shadow-lg" href="#sedekah">Infaq Sekarang</a>
             <a class="btn btn-outline-light rounded-pill px-4 fw-bold" href="#profil">Lihat Profil</a>
         </div>
     </div>
 </header>
 
-<div class="container prayer-container" id="jadwal">
-    <div class="row g-2 justify-content-center">
-        <div class="col-6 col-md-2"><div class="prayer-tile"><div class="p-label">Subuh</div><div class="p-time" id="fajr">--:--</div></div></div>
-        <div class="col-6 col-md-2"><div class="prayer-tile"><div class="p-label">Dzuhur</div><div class="p-time" id="dhuhr">--:--</div></div></div>
-        <div class="col-6 col-md-2"><div class="prayer-tile"><div class="p-label">Ashar</div><div class="p-time" id="asr">--:--</div></div></div>
-        <div class="col-6 col-md-2"><div class="prayer-tile"><div class="p-label">Maghrib</div><div class="p-time" id="maghrib">--:--</div></div></div>
-        <div class="col-12 col-md-2"><div class="prayer-tile"><div class="p-label">Isya</div><div class="p-time" id="isha">--:--</div></div></div>
+<div class="container menu-container">
+    <div class="row g-3 justify-content-center">
+        <div class="col-4 col-md-2"><a href="#profil" class="menu-tile"><i class="fas fa-mosque"></i><span>Profil</span></a></div>
+        <div class="col-4 col-md-2"><a href="#agenda" class="menu-tile"><i class="fas fa-calendar-alt"></i><span>Agenda</span></a></div>
+        <div class="col-4 col-md-2"><a href="#jumat" class="menu-tile"><i class="fas fa-microphone-alt"></i><span>Jumat</span></a></div>
+        <div class="col-4 col-md-2"><a href="#warta" class="menu-tile"><i class="fas fa-bullhorn"></i><span>Warta</span></a></div>
+        <div class="col-4 col-md-2"><a href="#keuangan" class="menu-tile"><i class="fas fa-wallet"></i><span>Laporan</span></a></div>
+        <div class="col-4 col-md-2"><a href="#sedekah" class="menu-tile"><i class="fas fa-heart"></i><span>Infaq</span></a></div>
     </div>
 </div>
 
 <section id="profil">
     <div class="container">
         <div class="row align-items-center g-5">
-            <div class="col-lg-6 order-2 order-lg-1">
-                <h2 class="text-success fw-bold text-uppercase mb-2" style="text-align: center;">مَرْحَبًا يَا خَيْرَ أُمَّةٍ</h2>
-                <h2 class="section-title text-start mb-4" style="text-align: center;">Sambutan</h2>
-                <h4 class="fw-bold text-muted mb-3" style="text-align: center;">"ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ"</h4>
-                <p class="lead text-muted mb-4" style="text-align: center;">Selamat datang di portal resmi Masjid Al Munawwaroh desa Cipancuh, Haurgeulis. Kami berkomitmen untuk menjadikan masjid bukan hanya tempat ibadah sholat, tapi juga pusat peradaban dan sosial bagi masyarakat sekitar.</p>
-                <div class="border-start border-4 border-success ps-3">
+            <div class="col-lg-6 order-2 order-lg-1 text-center text-lg-start">
+                <h5 class="fw-bold text-uppercase mb-2" style="color: var(--accent);">Ahlan wa Sahlan</h5>
+                <h2 class="section-title text-lg-start mb-4">Sambutan DKM</h2>
+                <p class="lead text-muted mb-5">Selamat datang di portal resmi Masjid Al Munawwaroh. Kami berkomitmen menjadikan masjid sebagai pusat peradaban dan sosial bagi masyarakat Cipancuh.</p>
+                <div class="border-start border-4 border-success ps-4 py-1">
                     <h5 class="fw-bold mb-0">Pengurus DKM</h5>
-                    <p class="small text-muted mb-0">Masjid Al Munawwaroh</p>
+                    <p class="text-muted mb-0">Masjid Al Munawwaroh Cipancuh</p>
                 </div>
             </div>
-
             <div class="col-lg-6 text-center order-1 order-lg-2">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoanIt1fhCjJL6nSso1K_0p7uBJJlYfzv2wJe543T21sq6P1mdlMgiyqqUpx5zPGIEpkpm1dvPrOAZAGRACmo5TMMWfkSS-I233eTcs7s09BPc05FE16Fdi8OdWCtlTZ-oKmYnRgO5SlmLxvTmk_Mmnqjfae6SC6KgyzR3YPDX6ctsFk79smFM4j4nSy7X/s1600/ddddddddd.jpg" class="img-fluid struktur-img mb-4" alt="Struktur Organisasi DKM">
-                <div>
-                    <a href="https://www.al-munawwaroh.info/p/profil-dkm-al-munawwaroh.html?m=1" class="btn btn-outline-success rounded-pill px-4 fw-bold">Lihat Selengkapnya DKM</a>
-                </div>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoanIt1fhCjJL6nSso1K_0p7uBJJlYfzv2wJe543T21sq6P1mdlMgiyqqUpx5zPGIEpkpm1dvPrOAZAGRACmo5TMMWfkSS-I233eTcs7s09BPc05FE16Fdi8OdWCtlTZ-oKmYnRgO5SlmLxvTmk_Mmnqjfae6SC6KgyzR3YPDX6ctsFk79smFM4j4nSy7X/s1600/ddddddddd.jpg" class="img-fluid rounded-5 shadow-lg border border-5 border-white" alt="DKM">
             </div>
         </div>
     </div>
 </section>
 
-<section class="container mb-5 mt-n4">
-    <div class="ayat-box text-center shadow-sm">
-        <div id="ar-text" class="arabic-text mb-3">Memuat Ayat...</div>
-        <div id="id-text" class="fst-italic mb-2 text-muted small"></div>
-        <div id="ar-ref" class="fw-bold text-success small mt-2"></div>
-    </div>
-</section>
+<section class="container py-0"><div class="ayat-box text-center"><div id="ar-text" class="arabic-text mb-4">Memuat Ayat...</div><div id="id-text" class="fst-italic mb-3 text-muted"></div><div id="ar-ref" class="fw-bold text-success"></div></div></section>
 
-<section class="bg-light" id="agenda">
+<section class="bg-light" id="agenda"><div class="container"><h2 class="section-title">Agenda Masjid</h2><div class="row g-4" id="agenda-container"></div></div></section>
+
+<section id="jumat"><div class="container"><h2 class="section-title">Petugas Sholat Jumat</h2><div class="row g-4 justify-content-center" id="jumat-cards"></div></div></section>
+
+<section id="warta" class="bg-light">
     <div class="container">
-        <h2 class="section-title">Agenda Masjid</h2>
-        <p class="section-subtitle">Mari bergabung dalam kegiatan memakmurkan masjid</p>
-        <div class="row g-4" id="agenda-container"></div>
-    </div>
-</section>
-
-<section id="jumat">
-    <div class="container">
-        <h2 class="section-title">Petugas Sholat Jumat</h2>
-        <p class="section-subtitle">Jadwal Khotib & Imam Sholat Jumat Mendatang</p>
-        <div class="row g-4 justify-content-center" id="jumat-cards"></div>
-    </div>
-</section>
-
-<section id="warta">
-    <div class="container-fluid px-md-5">
         <h2 class="section-title">Kabar Masjid</h2>
-        <p class="section-subtitle">Berita terbaru seputar kegiatan Masjid</p>
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3" id="blogger-feed"></div>
-    </div>
-</section>
-
-<section id="video" class="bg-white">
-    <div class="container text-center">
-        <h2 class="section-title">Video Kegiatan</h2>
-        <div class="mx-auto shadow-lg rounded-5 overflow-hidden border border-5 border-white" style="max-width: 800px;">
-            <div class="ratio ratio-16x9">
-                <iframe allowfullscreen src="https://www.youtube.com/embed/0QSXW_e7Krs?si=hZLnyRzD62ana7Q6"></iframe>
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6 g-3 mb-5" id="blogger-feed"></div>
+        <div class="text-center mt-5">
+            <h2 class="section-title">Video Kegiatan</h2>
+            <div class="ratio ratio-16x9 mx-auto shadow-lg rounded-4 overflow-hidden" style="max-width: 850px; border: 8px solid white;">
+                <iframe src="https://www.youtube.com/embed/0QSXW_e7Krs" title="YouTube video" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 </section>
 
-<section class="bg-light" id="keuangan">
+<section class="bg-white" id="keuangan">
     <div class="container">
-        <h2 class="section-title">KAS MASJID</h2>
-        <p class="section-subtitle">Informasi Keuangan Terkini Berdasarkan Catatan Bendahara</p>
+        <h2 class="section-title">Laporan Kas</h2>
         <div class="row g-4 mb-5">
             <div class="col-md-4"><div class="kas-card text-center"><h6 class="text-muted small">TOTAL MASUK</h6><h3 class="fw-bold text-success" id="summary-masuk">Rp 0</h3></div></div>
             <div class="col-md-4"><div class="kas-card text-center"><h6 class="text-muted small">TOTAL KELUAR</h6><h3 class="fw-bold text-danger" id="summary-keluar">Rp 0</h3></div></div>
-            <div class="col-md-4"><div class="kas-card bg-success text-white text-center"><h6>SALDO AKHIR</h6><h3 class="fw-bold" id="summary-saldo">Rp 0</h3></div></div>
+            <div class="col-md-4"><div class="kas-card text-white text-center" style="background: var(--primary);"><h6>SALDO AKHIR</h6><h3 class="fw-bold" id="summary-saldo">Rp 0</h3></div></div>
         </div>
-        <div class="text-center"><button class="btn btn-outline-success rounded-pill px-5 fw-bold" data-bs-target="#listKas" data-bs-toggle="collapse">Lihat Detail Laporan</button></div>
-        <div class="collapse mt-4" id="listKas">
-            <div class="table-responsive bg-white rounded-4 shadow-sm p-3">
-                <table class="table table-hover align-middle small">
-                    <thead class="table-dark"><tr><th>Tanggal</th><th>Keterangan</th><th class="text-end">Masuk</th><th class="text-end">Keluar</th></tr></thead>
-                    <tbody id="kas-data"></tbody>
-                </table>
-            </div>
-        </div>
+        <div class="text-center"><button class="btn btn-outline-success rounded-pill px-5 py-3 fw-bold" data-bs-target="#listKas" data-bs-toggle="collapse">Lihat Detail Laporan</button></div>
+        <div class="collapse mt-4" id="listKas"><div class="table-responsive bg-white rounded-4 shadow-sm p-4"><table class="table table-hover"><thead class="table-dark"><tr><th>Tgl</th><th>Keterangan</th><th class="text-end">Masuk</th><th class="text-end">Keluar</th></tr></thead><tbody id="kas-data"></tbody></table></div></div>
     </div>
 </section>
 
 <section id="sedekah">
     <div class="container">
-        <div class="ayat-box p-5 border-0 shadow-lg bg-white">
+        <div class="ayat-box p-5 border-0 shadow-lg bg-white text-center text-md-start">
             <div class="row align-items-center">
                 <div class="col-md-7">
                     <h2 class="fw-bold text-success mb-3">Infaq & Sedekah</h2>
-                    <p class="text-muted small mb-4">Infaq anda sangat berarti untuk pembangunan dan kegiatan dakwah Masjid Al Munawwaroh.</p>
-                    <div class="bg-light p-3 rounded-4 border mb-3">
-                        <small class="text-muted">BANK BRI (Kode: 002)</small>
-                        <h2 class="fw-bold" id="norek">4189-0103-7180-530</h2>
+                    <div class="bg-light p-4 rounded-4 border-start border-warning border-5 mb-4">
+                        <small class="text-muted fw-bold">BANK BRI</small>
+                        <h2 class="fw-bold text-dark mt-2" id="norek">4189-0103-7180-530</h2>
                         <div class="text-success fw-bold">a.n DKM AL MUNAWWAROH</div>
                     </div>
-                    <button class="btn btn-primary-custom w-100 shadow-sm" onclick="copyNorek()"><i class="far fa-copy me-2"></i>Salin Nomor Rekening</button>
+                    <button class="btn btn-primary-custom w-100 py-3" onclick="copyNorek()">Salin Nomor Rekening</button>
                 </div>
-                <div class="col-md-5 text-center mt-4 mt-md-0">
-                    <img class="img-fluid rounded-4 shadow" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjG6V4Zaqpeon443FljDN_yd4qeunPrE51q2urRvtCBsC_Gk_nSgQ7SMxY7KY802cNkIV06SkgwU7d44tt4ybO0VzlipmarqNX70fF1S1ytGxaWF0AAu3O4GT9GhFsTJvrRVwSVsCsHOXJVgRIWIRbmToMG0Uj2hfNycEpkELRngirac2xvVV7gNsl9MQLj/s320/IMG-20251228-WA0078.jpg" alt="QRIS Masjid">
+                <div class="col-md-5 text-center mt-5 mt-md-0">
+                    <img class="img-fluid rounded-4" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjG6V4Zaqpeon443FljDN_yd4qeunPrE51q2urRvtCBsC_Gk_nSgQ7SMxY7KY802cNkIV06SkgwU7d44tt4ybO0VzlipmarqNX70fF1S1ytGxaWF0AAu3O4GT9GhFsTJvrRVwSVsCsHOXJVgRIWIRbmToMG0Uj2hfNycEpkELRngirac2xvVV7gNsl9MQLj/s320/IMG-20251228-WA0078.jpg" alt="QRIS" style="max-height: 280px;">
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<footer class="bg-dark text-white py-5 text-center">
-    <div class="container">
-        <h5 class="fw-bold text-success mb-2">MASJID AL MUNAWWAROH</h5>
-        <p class="small opacity-50 mb-0">Cipancuh - Haurgeulis - Indramayu</p>
-        <p class="mt-3 small">&copy; 2026 DKM Al Munawwaroh. All Rights Reserved.</p>
-    </div>
+<footer class="bg-dark text-white py-5 mt-5 text-center">
+    <h5 class="fw-bold mb-3" style="color: var(--accent);">MASJID AL MUNAWWAROH</h5>
+    <p class="small opacity-75">Desa Cipancuh, Kec. Haurgeulis, Kab. Indramayu</p>
 </footer>
 
 <a class="wa-float" href="https://wa.me/6282120465585" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // --- KONFIGURASI PWA ---
-    const manifest = {
-        "name": "Masjid Al Munawwaroh",
-        "short_name": "Al Munawwaroh",
-        "start_url": ".",
-        "display": "standalone",
-        "background_color": "#f8fafc",
-        "theme_color": "#064e3b",
-        "icons": [
-            { "src": "https://cdn-icons-png.flaticon.com/512/2612/2612261.png", "sizes": "512x512", "type": "image/png" }
-        ]
-    };
-    const stringManifest = JSON.stringify(manifest);
-    const blob = new Blob([stringManifest], {type: 'application/json'});
-    const manifestURL = URL.createObjectURL(blob);
-    document.querySelector('#pwa-manifest').setAttribute('href', manifestURL);
-
-    // Fitur Install Button
-    let deferredPrompt;
-    const btnInstall = document.getElementById('btnInstall');
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        btnInstall.style.display = 'block';
-    });
-
-    btnInstall.addEventListener('click', async () => {
-        if (deferredPrompt) {
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            if (outcome === 'accepted') {
-                btnInstall.style.display = 'none';
-            }
-            deferredPrompt = null;
-        }
-    });
-
-    // --- LOGIKA DATA MASJID ---
     const csvKas = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQGTA_DyxcDC3JFbw2w_rjIrR2zOecNTOTGt0RJOyKjzI1DsoLDNZ4t4LaHrHLIp6yLzZN5Q-Hyy2A8/pub?gid=1247197738&single=true&output=csv';
     const csvJumat = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQGTA_DyxcDC3JFbw2w_rjIrR2zOecNTOTGt0RJOyKjzI1DsoLDNZ4t4LaHrHLIp6yLzZN5Q-Hyy2A8/pub?gid=2145598285&single=true&output=csv';
     const csvAgenda = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQGTA_DyxcDC3JFbw2w_rjIrR2zOecNTOTGt0RJOyKjzI1DsoLDNZ4t4LaHrHLIp6yLzZN5Q-Hyy2A8/pub?gid=2084790368&single=true&output=csv';
 
     async function init() {
-        const loadingHtml = '<div class="loading-overlay"><div class="spinner"></div><div class="small text-muted">Memuat data...</div></div>';
-        document.getElementById('agenda-container').innerHTML = loadingHtml;
-        document.getElementById('jumat-cards').innerHTML = loadingHtml;
-        document.getElementById('blogger-feed').innerHTML = loadingHtml;
+        const loading = '<div class="loading-overlay"><div class="spinner"></div></div>';
+        document.getElementById('agenda-container').innerHTML = loading;
+        document.getElementById('jumat-cards').innerHTML = loading;
+        document.getElementById('blogger-feed').innerHTML = loading;
 
-        // 1. Sholat API
-        try {
-            const r = await fetch('https://api.aladhan.com/v1/timings?latitude=-6.4589&longitude=107.9407&method=20');
-            const d = await r.json();
-            const p = d.data.timings;
-            ['Fajr','Dhuhr','Asr','Maghrib','Isha'].forEach(id => {
-                document.getElementById(id.toLowerCase()).innerText = p[id];
-            });
-        } catch(e){ console.error("Error Sholat API"); }
-
-        // 2. Ayat API
         try {
             const rdm = Math.floor(Math.random() * 6236) + 1;
             const r = await fetch(`https://api.alquran.cloud/v1/ayah/${rdm}/editions/quran-uthmani,id.indonesian`);
@@ -308,13 +211,74 @@
             document.getElementById('ar-text').innerText = d.data[0].text;
             document.getElementById('id-text').innerText = d.data[1].text;
             document.getElementById('ar-ref').innerText = `— QS. ${d.data[0].surah.englishName}: ${d.data[0].numberInSurah}`;
-        } catch(e){ 
-            document.getElementById('ar-text').innerText = "Bacalah Al-Quran setiap hari.";
-        }
+        } catch(e){}
 
-        // 3. Agenda Fetch
         try {
             const res = await fetch(csvAgenda);
             const text = await res.text();
             const rows = text.split(/\r?\n/).map(r => r.split(",")).filter(r => r.length > 1);
-            let h
+            let h = '';
+            rows.slice(1).forEach(r => { h += `<div class="col-md-4"><div class="agenda-card"><div class="text-success small fw-bold mb-1"><i class="far fa-calendar-alt me-1"></i> ${r[0]}</div><h5 class="fw-bold mb-2">${r[1]}</h5><div class="small text-muted">${r[2] || '-'}</div></div></div>`; });
+            document.getElementById('agenda-container').innerHTML = h || 'Belum ada agenda.';
+        } catch(e){}
+
+        try {
+            const res = await fetch(csvJumat);
+            const text = await res.text();
+            const rows = text.split(/\r?\n/).map(r => r.split(",")).filter(r => r.length > 1);
+            let h = '';
+            rows.slice(1, 4).forEach(r => { h += `<div class="col-md-4"><div class="jumat-card border-top border-warning border-4 text-center"><span class="badge bg-success mb-2">${r[0]}</span><h4 class="fw-bold mb-3">${r[1]}</h4><div class="mb-2"><b>Khotib:</b><br>${r[2]}</div><div class="small text-muted"><b>Muadzin:</b><br>${r[3]}</div></div></div>`; });
+            document.getElementById('jumat-cards').innerHTML = h || 'Jadwal belum tersedia.';
+        } catch(e){}
+
+        try {
+            const res = await fetch(csvKas);
+            const text = await res.text();
+            const rows = text.split(/\r?\n/).filter(r => r.trim() !== "").slice(1);
+            let h = ''; let tM = 0; let tK = 0;
+            rows.forEach(row => {
+                const c = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+                if(c.length >= 5) {
+                    const m = parseInt(c[3].replace(/[^0-9]/g, "")) || 0;
+                    const k = parseInt(c[4].replace(/[^0-9]/g, "")) || 0;
+                    tM += m; tK += k;
+                    h += `<tr><td>${c[0]}</td><td>${c[1]}</td><td class="text-end text-success">Rp ${m.toLocaleString('id-ID')}</td><td class="text-end text-danger">Rp ${k.toLocaleString('id-ID')}</td></tr>`;
+                }
+            });
+            document.getElementById('kas-data').innerHTML = h;
+            document.getElementById('summary-masuk').innerText = 'Rp ' + tM.toLocaleString('id-ID');
+            document.getElementById('summary-keluar').innerText = 'Rp ' + tK.toLocaleString('id-ID');
+            document.getElementById('summary-saldo').innerText = 'Rp ' + (tM - tK).toLocaleString('id-ID');
+        } catch(e){}
+
+        fetch("/feeds/posts/default?alt=json").then(res => res.json()).then(data => {
+            let html = "";
+            if (data.feed.entry) {
+                data.feed.entry.slice(0, 6).forEach(post => {
+                    let img = post.media$thumbnail ? post.media$thumbnail.url.replace("s72-c", "s1600") : "https://via.placeholder.com/400x250";
+                    let link = post.link.find(l => l.rel === 'alternate').href;
+                    html += `<div class="col"><div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"><img src="${img}" style="height:120px; object-fit:cover;"><div class="card-body p-2"><h6 class="small fw-bold mb-1" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:11px;">${post.title.$t}</h6><a href="${link}" class="text-success small fw-bold text-decoration-none" style="font-size:10px">BACA →</a></div></div></div>`;
+                });
+                document.getElementById("blogger-feed").innerHTML = html;
+            }
+        }).catch(() => {});
+    }
+
+    function copyNorek() {
+        const nr = document.getElementById('norek').innerText;
+        navigator.clipboard.writeText(nr).then(() => { alert("Nomor Rekening Berhasil Disalin!"); });
+    }
+
+    // PWA Service Worker Registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            const swCode = `self.addEventListener('install', e => self.skipWaiting()); self.addEventListener('fetch', e => e.respondWith(fetch(e.request)));`;
+            const blob = new Blob([swCode], { type: 'text/javascript' });
+            navigator.serviceWorker.register(URL.createObjectURL(blob));
+        });
+    }
+
+    window.onload = init;
+</script>
+</body>
+</html>
