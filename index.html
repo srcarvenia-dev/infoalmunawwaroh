@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Masjid Al Munawwaroh - Official Landing Page</title>
-<meta name="description" content="Website Resmi Masjid Al Munawwaroh Desa Cipancuh, Haurgeulis, Indramayu.">
+<title>Masjid Al Munawwaroh</title>
+<meta name="description" content="Website Resmi Masjid Al Munawwaroh">
 
 <!-- PWA -->
 <link rel="manifest" href="manifest.json">
@@ -17,89 +17,80 @@
 
 <!-- CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
 
-<!-- STYLE (punyamu tetap, tidak dihapus) -->
 <style>
-/* === SEMUA STYLE ANDA TETAP === */
-:root {
-    --primary:#064e3b;
-    --secondary:#10b981;
-    --accent:#d4af37;
+body{
+  font-family:system-ui,-apple-system,BlinkMacSystemFont;
+  background:#f8fafc;
 }
-body{font-family:'Plus Jakarta Sans',sans-serif}
-#header-wrapper,.navbar-blogger,.quickedit,.widget-item-control,.navbar{display:none!important}
+.hero{
+  min-height:100vh;
+  background:linear-gradient(rgba(6,78,59,.8),rgba(6,78,59,.9)),
+  url('https://cdn-icons-png.flaticon.com/512/2665/2665119.png') center/contain no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  text-align:center;
+}
+#btnInstall{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:999;
+}
 </style>
 </head>
+
+<body>
+
+<section class="hero">
+  <div>
+    <h1 class="fw-bold">Masjid Al Munawwaroh</h1>
+    <p>Pusat Ibadah & Pemberdayaan Ummat</p>
+    <p class="opacity-75">Cipancuh – Indramayu</p>
+  </div>
+</section>
+
+<button id="btnInstall"
+class="btn btn-success rounded-pill px-4 py-2 fw-bold"
+style="display:none;">
+📲 Pasang Aplikasi
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
+/* ===== REGISTER SERVICE WORKER ===== */
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')
-    .then(() => console.log('SW OK'))
-    .catch(e => console.log('SW ERR', e));
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(() => console.log('SW aktif'))
+      .catch(err => console.log('SW gagal', err));
+  });
 }
 
+/* ===== INSTALL PROMPT ===== */
 let deferredPrompt;
 const btnInstall = document.getElementById('btnInstall');
 
 window.addEventListener('beforeinstallprompt', (e) => {
-  console.log('PWA READY');
   e.preventDefault();
   deferredPrompt = e;
   btnInstall.style.display = 'block';
+  console.log('PWA siap diinstall');
 });
 
 btnInstall.addEventListener('click', async () => {
   if (!deferredPrompt) return;
   deferredPrompt.prompt();
-  const { outcome } = await deferredPrompt.userChoice;
-  if (outcome === 'accepted') {
+  const choice = await deferredPrompt.userChoice;
+  if (choice.outcome === 'accepted') {
     btnInstall.style.display = 'none';
   }
   deferredPrompt = null;
 });
 </script>
 
-<body>
-
-<!-- ===== ISI HTML ANDA TETAP ===== -->
-<!-- (hero, menu, profil, agenda, kas, dll TIDAK DIUBAH) -->
-
-<button id="btnInstall"
-class="btn btn-success rounded-pill px-4 fw-bold"
-style="display:none; position:fixed; bottom:20px; left:20px; z-index:999;">
-<i class="fas fa-download me-2"></i>Pasang Aplikasi
-</button>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-/* ===== SERVICE WORKER ===== */
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js');
-}
-
-/* ===== INSTALL PWA ===== */
-let deferredPrompt;
-const btnInstall = document.getElementById('btnInstall');
-
-window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    btnInstall.style.display = 'block';
-});
-
-btnInstall.addEventListener('click', async () => {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === 'accepted') {
-        btnInstall.style.display = 'none';
-    }
-    deferredPrompt = null;
-});
-</script>
-
 </body>
 </html>
-
